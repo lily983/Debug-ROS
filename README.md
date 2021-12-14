@@ -23,7 +23,19 @@ rosclean check
 rosclean purge
 
 ```
-
+check missing dependences
+```
+rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro melodic
+```
+Install missing dependences
+```
+rosdep install --from-paths . --ignore-src --rosdistro melodic -y
+```
+Download pkg from github
+```
+git clone http://xxxx -b melodic-devel
+```
 
 ## Common Mistakes in roslaunch 
 1. Invalid roslaunch XML syntax: mismatched tag
