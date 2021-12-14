@@ -19,6 +19,9 @@ catkin build
 ## Common used commands
 ```
 rm -rf "folder"
+rosclean check 
+rosclean purge
+
 ```
 
 
