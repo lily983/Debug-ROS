@@ -43,6 +43,11 @@ Invalid roslaunch XML syntax: mismatched tag
 
 
 # ROS-Gazebo
+## Spawn model into the world 
+  First we need to create two pkg in the catkin_ws: robot_description, robot_gazebo
+  Then we have two method to spawn model:
+  method 1: first roslaunch world and then roslaunch model
+  method 2: export the model into gazebo model database, and include model in the world file
   
   
   
