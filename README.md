@@ -41,7 +41,28 @@ git clone http://xxxx -b melodic-devel
 Invalid roslaunch XML syntax: mismatched tag
 --> Check if every tag has been self-closing. e.g. <arg hhhhh > is wrong, <arg hhhh /> is self-closing
 
+## Start a ros node
+```
+/**
+**  Simple ROS Node
+**/
+#include <ros/ros.h>
 
+int main(int argc, char* argv[])
+{
+  // This must be called before anything else ROS-related
+  ros::init(argc, argv, "vision_node");
+
+  // Create a ROS node handle
+  ros::NodeHandle nh;
+
+  ROS_INFO("Hello, World!");
+
+  // Don't exit the program.
+  ros::spin();
+}
+```
+  
 # ROS-Gazebo
 ## Spawn model into the world 
   First we need to create two pkg in the catkin_ws: robot_description, robot_gazebo
