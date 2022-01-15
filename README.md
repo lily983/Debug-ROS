@@ -41,7 +41,9 @@ git clone http://xxxx -b melodic-devel
 Invalid roslaunch XML syntax: mismatched tag
 --> Check if every tag has been self-closing. e.g. <arg hhhhh > is wrong, <arg hhhh /> is self-closing
 
+# ROS Program
 ## Start a ros node
+  NodeHandle is the way to communicate with ros master. You advertise/subscribe on topic/service/action through nodehandle, so that ros master knows what this node wants.
 ```
 /**
 **  Simple ROS Node
@@ -62,6 +64,21 @@ int main(int argc, char* argv[])
   ros::spin();
 }
 ```
+## Publish topic through node handle.
+  advertise<>() creats a publisher object that can publish topic. The topic's message type is defined in <> and its name is defined in (). 
+  
+  msg is message object that can be published latter.
+  
+  The publisher object chatter_pub has function to publish the message object.
+```
+  ros::NodeHandle n;
+  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter",1000);
+  std_msgs::String msg;
+  ...
+  chatter_pub.publish(msg);
+ ```
+  
+  
   
 # ROS-Gazebo
 ## Spawn model into the world 
