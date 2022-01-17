@@ -131,6 +131,13 @@ int main(int argc, char* argv[])
   ## Debug unable to call ros service
   Just check the spelling of service name!! I spelled 'test' to 'text' and spent a hour to debug it.... f..k
   
+  ## Call ros service from command line
+  ```
+  rosservice call /name 
+  Press 'Tab'
+  ```
+  This command+Tab will generate template for you to fill in the service request parameters.
+  
 # ROS-Gazebo
 ## Spawn model into the world 
   First we need to create two pkg in the catkin_ws: robot_description, robot_gazebo
