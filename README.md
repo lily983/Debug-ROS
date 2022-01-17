@@ -113,6 +113,8 @@ int main(int argc, char* argv[])
   ```
   
   ## How to check the correct ros service name
+  This problem is because unclear understanding towards node/nodehandle namespace. Please check ros tutorial.
+  
   I spent a lot of time to solve the problem: why my ros node in the gazebo plugin has been initialized while the nodehandle cannot advertise service. It turns out that my service name is in this format "node_name/service_name", but what I check is this "service_name". So, I cannot call the service because it is a wrong name.
   
   To avoid the same problem, please check the service/topic/action name first beforing using them.
@@ -125,6 +127,9 @@ int main(int argc, char* argv[])
   ros::spin() ros::spinOnce() are both to invoke callback function when the service/action are been called. 
   
   Write callbackqueue and thread works similar as use spin function directly. Check ros tutorial for more detail.
+  
+  ## Debug unable to call ros service
+  Just check the spelling of service name!! I spelled 'test' to 'text' and spent a hour to debug it.... f..k
   
 # ROS-Gazebo
 ## Spawn model into the world 
