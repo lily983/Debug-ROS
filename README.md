@@ -88,6 +88,15 @@ int main(int argc, char* argv[])
   ...
   return true};
   ```
+  The second method
+  ```
+  ros::AdvertiseServiceOptions GetPose_aso = ros::AdvertiseServiceOptions::create<custom_msgs::GetPose>(
+                                                                                 "name",
+                                                                                  boost::bind(&class::callbackfunction, this, _1, _2),
+                                                                                  ros::VoidPtr(),
+                                                                                  &this->rosQueue);
+  ros::ServiceServer GetPoseSrv = n.advertiseService(GetPose_aso);
+  ```
   
   ## callback for ros service
   callback takes in the request and calculate the response. callback can be a function/class/structure.
@@ -102,6 +111,20 @@ int main(int argc, char* argv[])
   srv.request.a = ...
   client.call(srv)
   ```
+  
+  ## How to check the correct ros service name
+  I spent a lot of time to solve the problem: why my ros node in the gazebo plugin has been initialized while the nodehandle cannot advertise service. It turns out that my service name is in this format "node_name/service_name", but what I check is this "service_name". So, I cannot call the service because it is a wrong name.
+  
+  To avoid the same problem, please check the service/topic/action name first beforing using them.
+  ```
+  rosservice list
+  rosservice call args
+  e.g. rosservice call laddle
+  ```
+  ## callback and spinning
+  ros::spin() ros::spinOnce() are both to invoke callback function when the service/action are been called. 
+  
+  Write callbackqueue and thread works similar as use spin function directly. Check ros tutorial for more detail.
   
 # ROS-Gazebo
 ## Spawn model into the world 
