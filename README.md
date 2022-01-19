@@ -1,4 +1,13 @@
 # Debug-ROS
+## Gazebo-ROS
+The important thing is to export the model path, otherwise we cannot find model in the gazebo database.
+```
+cd catkin_ws
+source devel/setup.bash
+source /usr/share/gazebo/setup.sh
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/gazebo_model_population/models/
+```
+
 ## Build a catkin workspace
 ```
 mkdir  -p ~/catkin_ws/src
