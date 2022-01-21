@@ -6,6 +6,7 @@ cd catkin_ws
 source devel/setup.bash
 source /usr/share/gazebo/setup.sh
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/gazebo_model_population/models/
+export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/gazebo_model_population/build/
 ```
 
 ## Build a catkin workspace
