@@ -9,6 +9,29 @@ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:~/gazebo_model_population/models/
 export GAZEBO_PLUGIN_PATH=${GAZEBO_PLUGIN_PATH}:~/gazebo_model_population/build/
 ```
 
+## Failed to launch 
+```
+xacro: in-order processing became default in ROS Melodic. You can drop the option.
+RLException: Unable to contact my own server at [http://lily:44227/].
+This usually means that the network is not configured properly.
+
+A common cause is that the machine cannot connect to itself.  Please check
+for errors by running:
+
+	ping lily
+
+For more tips, please see
+
+	http://wiki.ros.org/ROS/NetworkSetup
+
+The traceback for the exception was written to the log file
+```
+Solution:
+```
+export ROS_HOSTNAME=localhost
+export ROS_MASTER_URI=http://localhost:11311
+```
+
 ## Build a catkin workspace
 ```
 mkdir  -p ~/catkin_ws/src
