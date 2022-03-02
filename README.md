@@ -1,4 +1,9 @@
 # Debug-ROS
+## Moveit constraint approximation
+The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
+```
+roslaunch moveit_planners_ompl generate_state_database.launch
+```
 ## Gazebo-ROS
 The important thing is to export the model path, otherwise we cannot find model in the gazebo database.
 ```
