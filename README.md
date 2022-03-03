@@ -2,7 +2,7 @@
 ## Moveit constraint approximation
 The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
 ```
-roslaunch moveit_planners_ompl generate_state_database.launch
+roslaunch moveit_planners_ompl generate_state_database.launch constraints_file:=$(rospack find panda_moveit_config)/config/constraints.yaml planning_group:=panda_arm
 ```
 ## Gazebo-ROS
 The important thing is to export the model path, otherwise we cannot find model in the gazebo database.
