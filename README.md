@@ -57,6 +57,10 @@ catkin build
 ```
 ## Common used commands
 ```
+ rosrun image_view image_view image:=/aruco_single/result
+```
+Get the aruco result
+```
 rm -rf "folder"
 rosclean check 
 rosclean purge
