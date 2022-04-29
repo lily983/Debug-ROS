@@ -4,6 +4,14 @@ To open IDE: e.g. for on-chip calibration https://www.intelrealsense.com/self-ca
 ```
 realsense-viewer
 ```
+## Surface reconstruction
+Error: raycasted preview surface eroded as the arm scanning. It looks like the error caused by drift of pose.
+
+Possible reason: the timestamp between the depth image and arm are inconsistent. We may align the current depth image with camera pose publihed n seconds age. https://github.com/ros-industrial/yak_ros/issues/41
+```
+Your mesh is being eroded as you scan because the calculated position of the camera at a given time does not match the real-world position of the camera at that time. This can happen if one of the sources of TF information within your system has a clock that is out of sync relative to the rest of your system. The last time I encountered this, it was because the system clock in my robot's controller was 5 seconds behind my PC, so when Yak was trying to match up the depth images with camera positions it would use positions that were 5 seconds in the past, and it produced an issue similar to the one in your video.
+```
+
 ## Moveit constraint approximation
 The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
 ```
