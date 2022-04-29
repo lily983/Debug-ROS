@@ -1,4 +1,9 @@
 # Debug-ROS
+## Realsense SDK2.0 IDE
+To open IDE: e.g. for on-chip calibration https://www.intelrealsense.com/self-calibration-for-depth-cameras/
+```
+realsense-viewer
+```
 ## Moveit constraint approximation
 The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
 ```
