@@ -11,6 +11,10 @@ Possible reason: the timestamp between the depth image and arm are inconsistent.
 ```
 Your mesh is being eroded as you scan because the calculated position of the camera at a given time does not match the real-world position of the camera at that time. This can happen if one of the sources of TF information within your system has a clock that is out of sync relative to the rest of your system. The last time I encountered this, it was because the system clock in my robot's controller was 5 seconds behind my PC, so when Yak was trying to match up the depth images with camera positions it would use positions that were 5 seconds in the past, and it produced an issue similar to the one in your video.
 ```
+Possible solution:
+```
+To solve that particular problem I made a little ROS node that subscribed to /joint_states, copied the contents of the incoming messages to a new message while setting the timestamp in the header to the node's current time, and publishing them to a different topic (/joint_states_restamped or similar). In that particular case the root cause was that the clock of the robot's control computer (a Kuka iiwa7) was out of sync with the computer running the rest of the ROS nodes, which isn't directly applicable to the way you have things set up (in other words: I'm not confident that the "fix" I described is actually a solution for your problem).
+```
 
 ## Moveit constraint approximation
 The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
