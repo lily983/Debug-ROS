@@ -5,7 +5,11 @@ To open IDE: e.g. for on-chip calibration https://www.intelrealsense.com/self-ca
 realsense-viewer
 ```
 ## Surface reconstruction
-Error: raycasted preview surface eroded as the arm scanning. It looks like the error caused by drift of pose.
+### Reference web
+How TSDF integration works: https://gist.github.com/savuor/407fdc1807f9d5836d68aebfee726ef7
+TSDF params: https://docs.opencv.org/4.x/d9/d94/structcv_1_1kinfu_1_1VolumeParams.html#ad377fbc71190ba8c715f69dc3f64288f
+
+1. Error: raycasted preview surface eroded as the arm scanning. It looks like the error caused by drift of pose.
 
 Possible reason: the timestamp between the depth image and arm are inconsistent. We may align the current depth image with camera pose publihed n seconds age. https://github.com/ros-industrial/yak_ros/issues/41
 ```
@@ -15,6 +19,14 @@ Possible solution:
 ```
 To solve that particular problem I made a little ROS node that subscribed to /joint_states, copied the contents of the incoming messages to a new message while setting the timestamp in the header to the node's current time, and publishing them to a different topic (/joint_states_restamped or similar). In that particular case the root cause was that the clock of the robot's control computer (a Kuka iiwa7) was out of sync with the computer running the rest of the ROS nodes, which isn't directly applicable to the way you have things set up (in other words: I'm not confident that the "fix" I described is actually a solution for your problem).
 ```
+2. min_weight, tsdf_max_weight meaning:
+
+min_weight: the minimum number of observations a voxel has.  marching cubes function not meshing voxels with low weights. https://github.com/ros-industrial/yak_ros/issues/30
+
+tsdf_max_weight: the number of new observations at new distances a voxel required before the isosurface change appreciably.
+
+e: To actually answer the question: tsdf_max_weight caps the weight value of each voxel. If the max weight is 100, voxels that have been updated 100 times and voxels that have been updated 10000 times will require the same number of new observations at a new distance before the shape of the isosurface begins to change appreciably.https://github.com/ros-industrial/yak/issues/24
+
 
 ## Moveit constraint approximation
 The correct pkg is moveit_planners_ompl, not ompl_interface in the tutorial
