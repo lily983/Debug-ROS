@@ -7,7 +7,13 @@ realsense-viewer
 ## Surface reconstruction
 ### Reference web
 How TSDF integration works: https://gist.github.com/savuor/407fdc1807f9d5836d68aebfee726ef7
+
 TSDF params: https://docs.opencv.org/4.x/d9/d94/structcv_1_1kinfu_1_1VolumeParams.html#ad377fbc71190ba8c715f69dc3f64288f
+
+Mesh manipulation: 
+	1. http://www.huyaoyu.com/technical/2020/10/07/cgal-point-cloud-and-mesh.html
+	2. https://doc.cgal.org/latest/Manual/general_intro.html
+
 
 1. Error: raycasted preview surface eroded as the arm scanning. It looks like the error caused by drift of pose.
 
