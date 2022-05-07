@@ -13,7 +13,9 @@ TSDF params: https://docs.opencv.org/4.x/d9/d94/structcv_1_1kinfu_1_1VolumeParam
 Mesh manipulation: 
 	1. http://www.huyaoyu.com/technical/2020/10/07/cgal-point-cloud-and-mesh.html
 	2. https://doc.cgal.org/latest/Polygon_mesh_processing/index.html#Chapter_PolygonMeshProcessing
-
+```
+./HoleFilling /home/xiaoli/Desktop/results_mesh.ply /home/xiaoli/Desktop
+```
 
 1. Error: raycasted preview surface eroded as the arm scanning. It looks like the error caused by drift of pose.
 
