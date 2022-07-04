@@ -1,4 +1,11 @@
 # Debug-ROS
+
+## Open Azure kinect camera
+```
+k4aviewer
+```
+https://vinesmsuic.github.io/2020/10/31/azure-kinect-setup/#adding-path-in-vscode
+
 ## Realsense SDK2.0 IDE
 To open IDE: e.g. for on-chip calibration https://www.intelrealsense.com/self-calibration-for-depth-cameras/
 ```
