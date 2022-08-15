@@ -1,5 +1,11 @@
 # Debug-ROS
 
+## Debug mode
+To see the error msg when running a node, use debug mode when build the pkg
+```
+catkin build -DCMAKE_BUILD_TYPE=Debug pkg_name
+```
+
 ## Open Azure kinect camera
 ```
 k4aviewer
