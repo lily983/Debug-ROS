@@ -5,6 +5,7 @@
 ERROR: the following packages/stacks could not have their rosdep keys resolved to system dependencies: CGAL
 ```
 Check pkg package.xml file! In pkg obj_reconstruction, we set find_pkg(CGAL) im CMake.list, and I write <build_dependence>CGAL<> in package.xml. This is incorrect! CGAL is not a ROS pkg.
+https://answers.ros.org/question/320734/cannot-locate-rosdep-definition/
 
 ## Debug mode
 To see the error msg when running a node, use debug mode when build the pkg
