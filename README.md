@@ -1,6 +1,17 @@
 # Debug-ROS
 
+## catkin build error
+```
+CMake Error at /opt/ros/noetic/share/catkin/cmake/empy.cmake:30 (message):
+  Unable to find either executable 'empy' or Python module 'em'...  try
+  installing the package 'python-empy
+```
+```
+catkin build -DPYTHON_EXECUTABLE=/usr/bin/python3
+```
+
 ##ROS dep error
+
 ```
 ERROR: the following packages/stacks could not have their rosdep keys resolved to system dependencies: CGAL
 ```
