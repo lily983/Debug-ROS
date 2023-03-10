@@ -2,8 +2,21 @@
 
 ## Python
 /scripts: excutable node
+
 /src: define module
+
 setup.py: setup python
+
+## Python2 and python3
+For melodic, default python version is py2. If we need to change to py3, then we need to rebuild the workspace.
+```
+--cmake-args \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DPYTHON_EXECUTABLE=/usr/bin/python3 \
+            -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m \
+            -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
+	    --DFranka_DIR:PATH=/home/lily/libfranka/build
+```
 
 
 
