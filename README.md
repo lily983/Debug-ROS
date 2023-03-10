@@ -130,6 +130,7 @@ source ~/catkin_ws/devel/setup.bash
 ```
 cd ~/catkin_ws/src
 rosdep update
+rosdep check --from-paths . --ignore-src --rosdistro noetic
 rosdep install -y --from-paths . --ignore-src --rosdistro noetic
 catkin build
 ```
