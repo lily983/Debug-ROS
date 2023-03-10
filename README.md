@@ -1,5 +1,12 @@
 # Debug-ROS
 
+## Python
+/scripts: excutable node
+/src: define module
+setup.py: setup python
+
+
+
 ## catkin build error
 ```
 CMake Error at /opt/ros/noetic/share/catkin/cmake/empy.cmake:30 (message):
