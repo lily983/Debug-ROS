@@ -1,5 +1,19 @@
 # Debug-ROS
 
+## Multi-machine
+In master computer:
+```
+export ROS_MASTER_URI=http://master_ip:11311
+export ROS_IP=master_ip
+roscore
+```
+
+In slave computer:
+```
+export ROS_MASTER_URI=http://master_ip:11311
+export ROS_IP=slave_ip
+```
+
 ## Python
 /scripts: excutable node
 
