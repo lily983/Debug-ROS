@@ -1,6 +1,12 @@
 # Debug-ROS
 
 ## Multi-machine
+If launch panda_control_moveit_rviz.launch and get wrong planning scene, then shut down roscore in master computer, use 
+```
+rosclean purge
+```
+in both master computer and slave computer. Then relaunch panda again.
+
 In master computer:
 ```
 export ROS_MASTER_URI=http://master_ip:11311
