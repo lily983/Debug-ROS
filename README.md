@@ -1,6 +1,7 @@
 # Debug-ROS
 
 ## Multi-machine
+
 If launch panda_control_moveit_rviz.launch and get wrong planning scene, then shut down roscore in master computer, use 
 ```
 rosclean purge
@@ -18,6 +19,13 @@ In slave computer:
 ```
 export ROS_MASTER_URI=http://master_ip:11311
 export ROS_IP=slave_ip
+```
+
+Write the ip address to ./bashrc
+```
+sudo nano ~/.bashrc
+export ROS_MASTER_URI=...
+export ROS_IP=...
 ```
 
 ## Python
