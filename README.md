@@ -10,15 +10,15 @@ in both master computer and slave computer. Then relaunch panda again.
 
 In master computer:
 ```
-export ROS_MASTER_URI=http://master_ip:11311
-export ROS_IP=master_ip
+export ROS_MASTER_URI=http://master_name:11311
+export ROS_IP=master_name
 roscore
 ```
 
 In slave computer:
 ```
-export ROS_MASTER_URI=http://master_ip:11311
-export ROS_IP=slave_ip
+export ROS_MASTER_URI=http://master_name:11311
+export ROS_IP=slave_name
 ```
 
 Write the ip address to ./bashrc
@@ -27,6 +27,17 @@ sudo nano ~/.bashrc
 export ROS_MASTER_URI=...
 export ROS_IP=...
 ```
+
+If ROS_IP can't be retrived from the name, change the name to the IP address.
+For example, if this doesn't work,
+```
+export ROS_IP=slave_name
+```
+change to 
+```
+export ROS_IP=ip_address_of_slave
+```
+
 
 ## Python
 /scripts: excutable node
